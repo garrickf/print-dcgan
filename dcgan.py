@@ -269,7 +269,8 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 fixed_noise = Variable(torch.randn((opt.batch_size, 100)).view(-1, 100, 1, 1)) # Use for visualizations
-intervals_done = 0
+intervals_done = int(start_epoch * len(dataloader) // opt.sample_interval) # Epoch * num_batches / sample_interval
+# print(intervals_done)
 
 for epoch in range(start_epoch, opt.n_epochs):
 	for i, (imgs, _) in enumerate(dataloader):
