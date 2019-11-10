@@ -2,3 +2,7 @@
 *_images/
 *-images/
 .DS_Store
+__pycache__/
+*.csv
+*.jpg
+*.log

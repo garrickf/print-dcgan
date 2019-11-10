@@ -26,8 +26,8 @@ def setup_loggers(experiment_name, output_filename=OUTPUT_FILE, data_filename=DA
 	data_handler.setFormatter(logging.Formatter(CSV_FORMAT))
 	data_logger.addHandler(data_handler)
 
-	# Write CSV header if file doesn't exist already
-	if not os.path.isfile(experiment_name + '/' + data_filename):
+	# Write CSV header if file is empty
+	if os.stat(experiment_name + '/' + data_filename).st_size == 0:
 		f = open(experiment_name + '/' + DATA_FILE, 'a') # For appending
 		f.write('Iter,Dloss,Gloss,Epoch,Batch,Timestamp\n')
 		f.close()

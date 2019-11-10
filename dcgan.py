@@ -34,7 +34,7 @@ parser.add_argument("--batch_size", type=int, default=64, help="batch size (drop
 parser.add_argument("--lr", type=float, default=0.0002, help="adam: learning rate")
 parser.add_argument("--b1", type=float, default=0.5, help="adam: decay of first order momentum of gradient")
 parser.add_argument("--b2", type=float, default=0.999, help="adam: decay of first order momentum of gradient")
-parser.add_argument("--z_size", type=int, default=100, help="size of the noice")
+parser.add_argument("--z_size", type=int, default=100, help="size of the noise")
 parser.add_argument("--img_size", type=int, default=64, help="size of image dimensions (square)")
 parser.add_argument("--channels", type=int, default=3, help="number of image channels (default: RGB)")
 parser.add_argument("--sample_interval", type=int, default=100, help="interval between taking a snapshot of the images")
@@ -111,7 +111,7 @@ Class: Discriminator/D(z)
 Presents the implementation for the generator.
 """
 class Discriminator(nn.Module):
-	def __init__(self, in_size=3, ndf=40):
+	def __init__(self, in_size=3, ndf=35):
 		super(Discriminator, self).__init__()
 		self.in_size = in_size
 		self.ndf = ndf
